@@ -1,0 +1,23 @@
+%h1 Listing categories
+
+%table
+  %tr
+    %th= sortable "id"
+    %th= sortable "name", t('category.name')    
+    %th= sortable "created_at"
+    %th Operations 
+    
+    
+  - @categories.each do |category|
+    %tr
+      %td= category.id
+      %td= link_to category.name,  [:admin, category]      
+      %td= l(category.created_at, :format => :long)
+      %td        
+        = link_to (t'Edit'), edit_admin_category_path(category)
+        = link_to (t'Destroy'), [:admin, category], :confirm => 'Are you sure?', :method => :delete
+	      
+	      
+%br
+
+= link_to 'New Category', new_admin_category_path
