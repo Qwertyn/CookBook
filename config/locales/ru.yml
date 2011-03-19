@@ -25,6 +25,7 @@ ru:
       default: "%a, %d %b %Y, %H:%M:%S %z"
       short: "%d %b, %H:%M"
       long: "%d %B %Y, %H:%M"
+      long_date: "%d %B %Y"
 
     am: "утра"
     pm: "вечера"
@@ -140,5 +141,5 @@ ru:
       
     attributes:
       category:
-        name: "Название категории"
+        name: Название
        

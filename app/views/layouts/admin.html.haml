@@ -10,10 +10,13 @@
 
 %body
   %h1 Cookbook Admin
+  = link_to 'Categories', admin_categories_path
+  = link_to 'Dish', admin_dishes_path
   
   #notice
     %p= notice
-
+    
+  %hr
 
   = yield
  

@@ -1,22 +1,22 @@
-%h1 Listing categories
+%h2 Categories
 
-%table
-  %tr
-    %th= sortable "id"
-    %th= sortable "name", t('category.name')    
-    %th= sortable "created_at"
-    %th Operations 
-    
-    
-  - @categories.each do |category|
+- unless @categories.blank?
+  %table
     %tr
-      %td= category.id
-      %td= link_to category.name,  [:admin, category]      
-      %td= l(category.created_at, :format => :long)
-      %td        
-        = link_to (t'Edit'), edit_admin_category_path(category)
-        = link_to (t'Destroy'), [:admin, category], :confirm => 'Are you sure?', :method => :delete
-	      
+      %th ID
+      %th Name      
+      %th Operations 
+              
+    - @categories.each do |category|
+      %tr
+        %td= category.id
+        %td= link_to category.name,  [:admin, category]        
+        %td        
+          = link_to (t'Edit'), edit_admin_category_path(category)
+          = link_to (t'Destroy'), [:admin, category], :confirm => 'Are you sure?', :method => :delete
+
+- else 
+  %p Oops, No Categories  	      
 	      
 %br
 

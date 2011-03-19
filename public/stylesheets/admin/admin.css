@@ -69,3 +69,13 @@ div.field, div.actions {
 .pretty th .desc {
   background-image: url(/images/down_arrow.gif);
 }
+/* ------------------------------------------------------------ Разделение категорий и рецептов */
+.show_categories{
+  float: left;
+  width: 350px;
+}
+
+.show_dishes{
+  float: left;
+  width: 650px; 
+}
