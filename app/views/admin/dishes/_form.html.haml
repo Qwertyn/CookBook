@@ -1,8 +1,7 @@
 - semantic_form_for [:admin, @dish], :html => { :multipart => true } do |form|
   - form.inputs do
     = form.input :category, :collection => @categories
-    = form.input :name
-    = form.input :visible
+    = form.input :name    
     = form.input :recipe  
     
     = form.buttons

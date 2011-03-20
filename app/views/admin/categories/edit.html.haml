@@ -1,7 +1,7 @@
 .show_categories
-  %h2 Editing category
+  %h2=t'Editing'
   
   = render 'form'
   
-  = link_to 'Show', [:admin, @category]
-  = link_to 'Back', admin_categories_path
+  = link_to (t'Show'), [:admin, @category]
+  = link_to (t'Back'), admin_categories_path

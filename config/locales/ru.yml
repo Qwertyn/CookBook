@@ -129,17 +129,43 @@ ru:
       full_messages:
         format: "%{attribute} %{message}"
         
-
+  Cookbook: Кулинарная книга
+  
+  Categories: Категории
+  New Category: Новая категори
+  Oops, No Categories: Категорий нет
+    
+  Dishes: Блюда
+  New Dish: Новое блюдо
+  Oops, No Dishes: Блюд нет
+  No Category: Нет категории  
+  
+  Editing: Редактирование 
+  Are you sure?: Вы уверены?
+  Deleted: Удалено
+  
+  Operations: Операции
+  Show: Просмотр
   Edit: Править
+  Delete: Скрыть
+  Restore: Восстановить
   Destroy: Удалить
   Back: Назад
      
         
   activerecord:
     models:
-      category: "Категория"
+      category: Категория
+      dish: Блюдо
       
     attributes:
       category:
         name: Название
+      
+      dish:
+        category: Категория
+        name: Название
+        recipe: Рецепт  
+        created_at: Дата создания
+        visible: Статус
        

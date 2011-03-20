@@ -1,17 +1,17 @@
-%h2 Categories
-
-- unless categories.blank?
-  %table
-    - categories.each do |category|
-      %tr
-        %td
-          - link_to admin_category_path(category) do
-            = category.name
-            (#{category.dishes.count})          
-        %td        
-          = link_to (t'Edit'), edit_admin_category_path(category)
-          = link_to (t'Destroy'), [:admin, category], :confirm => 'Are you sure?', :method => :delete
-- else 
-  %p Oops, No Categories 
+%h2=t'Categories'
+#categories
+  - unless categories.blank?
+    %table
+      - categories.each do |category|
+        %tr
+          %td
+            - link_to admin_category_path(category) do
+              = category.name
+              (#{category.dishes.count})          
+          %td        
+            = link_to (t'Edit'), edit_admin_category_path(category)
+            = link_to (t'Destroy'), [:admin, category], :confirm => "#{t'Are you sure?'}", :method => :delete
+  - else 
+    %p=t'Oops, No Categories' 
   
-%br= link_to 'New Category', new_admin_category_path         
+%br= link_to (t'New Category'), new_admin_category_path         

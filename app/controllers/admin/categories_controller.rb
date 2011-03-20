@@ -9,10 +9,8 @@ class Admin::CategoriesController < AdminController
   	respond_with(@categories)  	
   end
   
-  def show
-    # @dishes = @category.dishes.all
-  	@dishes = @category.dishes.order(sort_column + " " + sort_direction)
-  	
+  def show    
+  	@dishes = @category.dishes.order(sort_column + " " + sort_direction)  	
   	respond_with(@category)   
   end
 
@@ -42,7 +40,7 @@ class Admin::CategoriesController < AdminController
     
   def destroy    
     @category.destroy    
-    flash[:notice] = "Successfully destroyed category."
+    flash[:notice] = "Successfully destroyed category."    
     respond_with([:admin, @category])    
   end
   
