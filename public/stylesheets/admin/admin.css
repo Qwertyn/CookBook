@@ -54,28 +54,55 @@ div.field, div.actions {
   font-size: 12px;
   list-style: square;
 }
+/* ------------------------------------------------------------ Панель админки */
+.admin_panel {
+    -moz-border-radius: 10px 10px 10px 10px;
+    background: none repeat scroll 0 0 #D3E1EA;
+    border: 2px solid #EEEEEE;
+    margin-bottom: 10px;
+    padding: 15px;
+}
 
 /* ------------------------------------------------------------ Сортировка по заголовку столбца */
 .pretty th .current {
-  padding-right: 12px;
+  padding-right: 16px;
   background-repeat: no-repeat;
   background-position: right center;
 }
 
-.pretty th .asc {
-  background-image: url(/images/up_arrow.gif);
+.pretty th .asc {  
+  background-image: url(/images/admin/icon/sort_ascending.png);
 }
 
 .pretty th .desc {
-  background-image: url(/images/down_arrow.gif);
+  background-image: url(/images/admin/icon/sort_descending.png);
 }
 /* ------------------------------------------------------------ Разделение категорий и рецептов */
 .show_categories{
   float: left;
-  width: 350px;
+  width: 25%;
 }
 
 .show_dishes{
   float: left;
-  width: 650px; 
+  width: 75%; 
+}
+
+.show_dish {
+    -moz-border-radius: 10px 10px 10px 10px;
+    background: none repeat scroll 0 0 #F4F4F4;
+    border: 2px solid #EEEEEE;
+    margin-bottom: 10px;
+    padding: 15px;
+}
+
+.diches_table{
+  width: 100%;
+}
+.odd{
+  background: #EEE;
+}
+
+.lack{
+  color: #CC0000;
 }

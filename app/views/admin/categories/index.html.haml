@@ -1,23 +1,2 @@
-%h2 Categories
-
-- unless @categories.blank?
-  %table
-    %tr
-      %th ID
-      %th Name      
-      %th Operations 
-              
-    - @categories.each do |category|
-      %tr
-        %td= category.id
-        %td= link_to category.name,  [:admin, category]        
-        %td        
-          = link_to (t'Edit'), edit_admin_category_path(category)
-          = link_to (t'Destroy'), [:admin, category], :confirm => 'Are you sure?', :method => :delete
-
-- else 
-  %p Oops, No Categories  	      
-	      
-%br
-
-= link_to 'New Category', new_admin_category_path
+.show_categories
+  = render :partial => "/admin/shared/categories_list", :locals => { :categories => @categories }  

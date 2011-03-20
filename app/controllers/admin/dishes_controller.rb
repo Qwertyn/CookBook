@@ -2,7 +2,7 @@ class Admin::DishesController < AdminController
 		
   before_filter :get_dish, :only => [:show, :edit, :update, :destroy, :set_visibility]
   before_filter :get_categories, :only => [:new, :edit, :update]
-  respond_to :html, :xml, :json
+  respond_to :html, :xml, :json, :js
   helper_method :sort_column, :sort_direction
 
   def index
@@ -38,22 +38,7 @@ class Admin::DishesController < AdminController
     end
     respond_with([:admin, @dish])    
   end 
-  
-  # def set_visibility
-  #   if @dish.update_attributes!(:visible => false)
-  #   # if @dish.visible
-  #   #   @dish.update_attributes(:visible => false)      
-  #   # else
-  #   #   @dish.update_attributes(:visible => false)      
-  #   # end
-  #      
-  #     flash[:notice] = "Successfully updated dish."
-  #   end    
-  #   respond_with([:admin, @dish]) 
-  # end
-  
-  
-  
+    
   def visibility
     @dish = Dish.find(params[:id])
     @dish.visible == true ? @dish.visible = false : @dish.visible = true
@@ -63,9 +48,10 @@ class Admin::DishesController < AdminController
     end
     respond_with([:admin, @dish])
     # respond_to do |formet|
-    #   formet.html {redirect_to(admin_dishes_path)}
+    #   formet.html {redirect_to([:admin, @dish])}
+    #   format.js
     # end  
-     
+          
   end
   
   def destroy    

@@ -1,4 +1,2 @@
 $("#dishes_list").html("<%= escape_javascript( render 'dishes' ) %>");  
 $.jGrowl("<%= escape_javascript(flash[:notice])%>");
-
-$('body').html("<h1><%= escape_javaScript(flash[:notice]) %></h1>").append("<%= escape_javaScript(flash[:notice]) %>");  

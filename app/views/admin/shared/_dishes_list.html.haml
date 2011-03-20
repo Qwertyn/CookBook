@@ -1,0 +1,43 @@
+- unless dishes.blank?
+  %table.diches_table
+    %tr.pretty
+      %th= sortable "id"
+      %th= sortable "name"        
+      %th Category
+      %th= sortable "created_at"
+      %th= sortable "visible"
+      %th Operations       
+    - dishes.each do |dish|
+      %tr
+        %td= dish.id
+        %td= link_to dish.name,  [:admin, dish]
+        %td
+          - unless dish.category.blank? 
+            = link_to dish.category.name, admin_category_path(dish.category) 
+          - else 
+            .lack No Category                  
+        %td= l(dish.created_at, :format => :long_date)
+        %td= dish.visible ? 'yes':'no'      
+        
+        %td
+          = link_to 'Delete', visibility_admin_dish_path(dish), :confirm => 'Are you sure?', :remote => true
+          
+          
+        -#
+          - if dish.visible
+            = link_to 'Delete', visibility_admin_dish_path(dish), :confirm => 'Are you sure?', :remote => true
+          - else
+            Deleted
+            = link_to 'Restore', visibility_admin_dish_path(dish), :confirm => 'Are you sure?', :remote => true  
+            
+        %td        
+          = link_to (t'Edit'), edit_admin_dish_path(dish)
+          
+          
+          -# = link_to (t'Delete'), visibility_admin_dish_path(dish), :confirm => 'Are you sure?', :remote => true
+          -# = link_to (t'Restore'), visibility_admin_dish_path(dish), :confirm => 'Are you sure?', :remote => true
+          
+          -# = link_to (t'Destroy'), [:admin, dish], :confirm => 'Are you sure?', :method => :delete 
+          
+- else 
+  %p Oops, No Dishes

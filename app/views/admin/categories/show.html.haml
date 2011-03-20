@@ -1,44 +1,11 @@
-.show_categories
-  
-  %h2 Categories  
-  - unless @categories.blank?
-    - @categories.each do |category|        
-      = link_to category.name,  [:admin, category]
-      %br          
-  - else 
-    %p Oops, No Categories
-              
-  %br= link_to 'New Category', new_admin_category_path
+.show_categories  
+  = render :partial => "/admin/shared/categories_list", :locals => { :categories => @categories }
 
--# ------------------------------------------------------------------------------------
 .show_dishes
+  %h2= @category.name  
+  
+  = render :partial => "/admin/shared/dishes_list", :locals => { :dishes => @dishes }
 
-  %h2= @category.name
-  
-  - unless @dishes.blank?
-    %table
-      %tr
-        %th= sortable "id"
-        %th= sortable "name"
-        %th= sortable "created_at"
-        %th= sortable "visible"
-        %th Operations 
-          
-      - @dishes.each do |dish|
-        %tr
-          %td= dish.id
-          %td= link_to dish.name,  [:admin, dish]                          
-          %td= l(dish.created_at, :format => :long_date)
-          %td= dish.visible ? 'yes' : 'no'
-          %td        
-            = link_to (t'Edit'), edit_admin_dish_path(dish)
-            = link_to (t'Destroy'), [:admin, dish], :confirm => 'Are you sure?', :method => :delete
-            
-  - else 
-    %p Oops, No Dishes
-          
-  %br
-  
-  = link_to 'New Dish', new_admin_dish_path(:category_id => @category.id)
+  %br= link_to 'New Dish', new_admin_dish_path(:category_id => @category.id)
 
 

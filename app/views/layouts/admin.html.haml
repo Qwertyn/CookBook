@@ -6,17 +6,23 @@
   = csrf_meta_tag
   
   = stylesheet_link_tag 'admin/admin', 'formtastic', 'formtastic_changes'
+  
+  -# %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js", :type => "text/javascript"} 
+
 
 
 %body
-  %h1 Cookbook Admin
-  = link_to 'Categories', admin_categories_path
-  = link_to 'Dish', admin_dishes_path
-  
-  #notice
-    %p= notice
+  .admin_panel
+    %h1 Cookbook Admin
+    = link_to 'Categories', admin_categories_path
+    = link_to 'Dish', admin_dishes_path
+        
+    #notice= notice
     
-  %hr
-
   = yield
  
+ 
+:javascript
+  $(document).ready(function(){
+  $("tr:odd").addClass("odd");
+  });  

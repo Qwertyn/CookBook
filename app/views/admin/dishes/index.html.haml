@@ -2,39 +2,9 @@
   Cookbook
 .show_dishes
   #dishes_list
-    %h1 Listing dishes
-    
-    - unless @dishes.blank?
-      %table
-        %tr
-          %th= sortable "id"
-          %th= sortable "name"        
-          %th= sortable "category"
-          %th= sortable "visible"    
-          %th= sortable "created_at"
-          %th Operations 
-    
-    	    
-        - @dishes.each do |dish|
-          %tr
-            %td= dish.id
-            %td= link_to dish.name,  [:admin, dish]
-            %td= !dish.category.blank? ? dish.category.name : 'no'
-            %td= dish.visible ? 'yes' : 'no'      
-            %td= l(dish.created_at, :format => :long_date)
-            %td        
-              = link_to (t'Edit'), edit_admin_dish_path(dish)
-              -# = link_to (t'Destroy'), visibility_admin_dish_path(dish), :confirm => 'Are you sure?', :remote => true
-              = link_to (t'Destroy'), visibility_admin_dish_path(dish), :confirm => 'Are you sure?'
-              -#, :remote => true
-              
-              
-              -# = link_to (t'Destroy'), [:admin, dish], :confirm => 'Are you sure?', :action => :set_visibility, :id => dish
-              -# = link_to (t'Destroy'), [:admin, dish], :confirm => 'Are you sure?', :method => :delete 
-    	        
-    - else 
-      %p Oops, No Dishes
-    	      
-  %br
-  
-  = link_to 'New Dish', new_admin_dish_path
+    %h2 Dishes
+        
+    = render :partial => "/admin/shared/dishes_list", :locals => { :dishes => @dishes }
+   
+  %br= link_to 'New Dish', new_admin_dish_path
+ 

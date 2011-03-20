@@ -2,15 +2,13 @@ Cookbook::Application.routes.draw do
     
   namespace :admin do
     resources :categories
+    
     resources :dishes do
       member do
         get 'visibility'
       end
-    end    
-            
+    end   
     
-    # match 'admin/dishes/:id/visibility' => 'dish#visibility', :as => 'visibility' 
-   
   end
   
   # The priority is based upon order of creation:
