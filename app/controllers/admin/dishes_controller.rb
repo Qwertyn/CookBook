@@ -1,12 +1,12 @@
 class Admin::DishesController < AdminController
 		
-  before_filter :get_dish, :only => [:show, :edit, :update, :destroy, :set_visibility]
+  before_filter :get_dish, :only => [:show, :edit, :update, :destroy, :visibility]
+  before_filter :get_dishes, :only => [:index, :visibility]
   before_filter :get_categories, :only => [:new, :edit, :update]
-  respond_to :html, :xml, :json#, :js
+  respond_to :html, :xml, :json, :js
   helper_method :sort_column, :sort_direction
 
   def index
-  	@dishes = Dish.order(sort_column + " " + sort_direction)
   	respond_with(@dishes)  	
   end
   
@@ -39,15 +39,12 @@ class Admin::DishesController < AdminController
     respond_with([:admin, @dish])    
   end 
     
-  def visibility
-    @dish = Dish.find(params[:id])
+  def visibility    
     @dish.visible == true ? @dish.visible = false : @dish.visible = true
     if @dish.update_attributes(params[:dish])
-      flash[:notice] = "Successfully updated dish."
-      # @dishes = Dish.all
+      flash[:notice] = "Successfully updated dish."                              
     end
-    # respond_with([:admin, @dish])
-    respond_with(@dish)
+    respond_with([:admin, @dish])    
   end
   
   def destroy    
@@ -60,6 +57,10 @@ class Admin::DishesController < AdminController
     def get_dish
       @dish = Dish.find(params[:id])
     end
+    
+    def get_dishes
+      @dishes = Dish.order(sort_column + " " + sort_direction) 
+    end  
   
     def get_categories
       @categories = Category.order('name')

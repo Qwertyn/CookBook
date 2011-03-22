@@ -1,2 +1,6 @@
-$("dishes_list").update("#{escape_javascript( render 'dishes' )}");
-$.notice("#{escape_javascript(flash[:notice])}");
+-# проверка
+-# #{"alert('hello');"}
+
+$("notice").update("#{escape_javascript(flash[:notice])}");
+$("dishes_list").update("#{escape_javascript(render :partial => "/admin/shared/dishes_list", :locals => { :dishes => @dishes })}");
+

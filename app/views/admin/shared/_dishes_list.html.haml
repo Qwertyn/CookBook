@@ -1,32 +1,33 @@
-- unless dishes.blank?
-  %table.diches_table
-    %tr.pretty
-      %th= sortable "id"
-      %th= sortable "name", "#{t'activerecord.attributes.dish.name'}"        
-      %th= t'activerecord.attributes.dish.category'
-      %th= sortable "created_at", "#{t'activerecord.attributes.dish.created_at'}"    
-      %th= sortable "visible", "#{t'activerecord.attributes.dish.visible'}"
-      %th=t'Operations'       
-    - dishes.each do |dish|
-      %tr
-        %td= dish.id
-        %td= link_to dish.name,  [:admin, dish]
-        %td
-          - unless dish.category.blank? 
-            = link_to dish.category.name, admin_category_path(dish.category) 
-          - else 
-            .lack=t'No Category'                  
-        %td= l(dish.created_at, :format => :long_date)
-        %td= dish.visible ? 'yes': "#{t'Deleted'}"      
-        
-        %td          
-          - if dish.visible
-            = link_to (t'Delete'), visibility_admin_dish_path(dish), :confirm => "#{t'Are you sure?'}", :remote => true        
-          - else            
-            = link_to (t'Restore'), visibility_admin_dish_path(dish), :confirm => "#{t'Are you sure?'}", :remote => true  
-                        
-          = link_to (t'Edit'), edit_admin_dish_path(dish)                 
-          = link_to (t'Destroy'), [:admin, dish], :confirm => "#{t'Are you sure?'}", :method => :delete 
+#dishes_list
+  - unless dishes.blank?
+    %table.diches_table
+      %tr.pretty
+        %th= sortable "id"
+        %th= sortable "name", "#{t'activerecord.attributes.dish.name'}"        
+        %th= t'activerecord.attributes.dish.category'
+        %th= sortable "created_at", "#{t'activerecord.attributes.dish.created_at'}"    
+        %th= sortable "visible", "#{t'activerecord.attributes.dish.visible'}"
+        %th=t'Operations'       
+      - dishes.each do |dish|
+        %tr
+          %td= dish.id
+          %td= link_to dish.name,  [:admin, dish]
+          %td
+            - unless dish.category.blank? 
+              = link_to dish.category.name, admin_category_path(dish.category) 
+            - else 
+              .lack=t'No Category'                  
+          %td= l(dish.created_at, :format => :long_date)
+          %td= dish.visible ? 'yes': "#{t'Deleted'}"      
           
-- else 
-  %p=t'Oops, No Dishes'
+          %td          
+            - if dish.visible
+              = link_to (t'Delete'), visibility_admin_dish_path(dish), :confirm => "#{t'Are you sure?'}", :remote => true        
+            - else            
+              = link_to (t'Restore'), visibility_admin_dish_path(dish), :confirm => "#{t'Are you sure?'}", :remote => true  
+                          
+            = link_to (t'Edit'), edit_admin_dish_path(dish)                 
+            = link_to (t'Destroy'), [:admin, dish], :confirm => "#{t'Are you sure?'}", :method => :delete, :remote => true
+            
+  - else 
+    %p=t'Oops, No Dishes'
