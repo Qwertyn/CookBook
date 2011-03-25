@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'haml'
 gem 'formtastic'
 gem 'russian'
+gem 'jquery-rails', '>= 0.2.6'
 
 # Use unicorn as the web server
 # gem 'unicorn'
