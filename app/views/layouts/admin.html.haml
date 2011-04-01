@@ -1,7 +1,7 @@
 !!!
 %html
 %head
-  %title CookBook | #{@title}
+  %title=title
   = stylesheet_link_tag :all
   = javascript_include_tag :defaults
   = csrf_meta_tag
@@ -10,7 +10,7 @@
   
 %body
   .admin_panel
-    %h1=t'Cookbook'
+    %h1= link_to (t'Cookbook'), admin_root_path
         
     = link_to (t'Categories'), admin_categories_path
     = link_to (t'Dishes'), admin_dishes_path

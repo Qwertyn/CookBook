@@ -1,23 +1,20 @@
 Cookbook::Application.routes.draw do
-    
-  # get "main/index"
 
   namespace :admin do
     
     root :to => "main#index"
-    resources :categories
     
+    resources :categories    
     resources :dishes do
       member do
         get 'visibility'
       end
-    end   
-    
+    end
+        
   end
   
-  root :to => "main#index"
-  
-  get "main/about"
+  root :to => "main#index"  
+  match '/about', :to => 'main#about'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Ruby on Rails: Welcome aboard
+    %title=title
     = stylesheet_link_tag :all
     = javascript_include_tag :defaults
     = csrf_meta_tag
@@ -12,12 +12,12 @@
     #page     
       #content
         #header
-          %h1=t'Cookbook'
+          %h1=link_to (t'Cookbook'), root_path
                     
         #about
           %h3
             CookBook
-          = link_to 'Categories'
+          = link_to (t'About'), about_path
             
         #getting-started
           
