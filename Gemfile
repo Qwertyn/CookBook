@@ -12,6 +12,13 @@ gem 'russian'
 gem 'jquery-rails', '>= 0.2.6'
 gem 'mysql2'
 
+group :development, :test do
+  gem 'webrat'
+  gem 'rspec'
+  gem 'rspec-rails'
+end
+
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

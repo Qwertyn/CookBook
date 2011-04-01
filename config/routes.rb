@@ -1,6 +1,8 @@
 Cookbook::Application.routes.draw do
     
   namespace :admin do
+    
+    root :to => "main#index"
     resources :categories
     
     resources :dishes do
@@ -12,6 +14,8 @@ Cookbook::Application.routes.draw do
   end
   
   root :to => "main#index"
+  
+  get "main/about"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

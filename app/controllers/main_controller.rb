@@ -1,6 +1,8 @@
 class MainController < PublicController
   
-  def index
-    
+  def index    
+  end
+  
+  def about    
   end
 end
