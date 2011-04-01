@@ -1,5 +1,7 @@
 class Admin::MainController < AdminController
-  
-  def index    
+  def index
+    @title = "Index"
   end
+
 end
+

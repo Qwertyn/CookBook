@@ -1,5 +1,7 @@
 Cookbook::Application.routes.draw do
     
+  # get "main/index"
+
   namespace :admin do
     
     root :to => "main#index"
