@@ -1,4 +1,4 @@
-body { background-color: #fff; color: #333; }
+/*body { background-color: #fff; color: #333; }
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -53,15 +53,15 @@ div.field, div.actions {
 #error_explanation ul li {
   font-size: 12px;
   list-style: square;
-}
+}*/
 /* ------------------------------------------------------------ Панель админки */
-.admin_panel {
+/*.admin_panel {
     -moz-border-radius: 10px 10px 10px 10px;
     background: none repeat scroll 0 0 #D3E1EA;
     border: 2px solid #EEEEEE;
     margin-bottom: 10px;
     padding: 15px;
-}
+}*/
 
 /* ------------------------------------------------------------ Сортировка по заголовку столбца */
 .pretty th .current {
@@ -77,8 +77,13 @@ div.field, div.actions {
 .pretty th .desc {
   background-image: url(/images/admin/icon/sort_descending.png);
 }
+
+/* ------------------------------------------------------------ Ошибка */
+.lack{
+  color: #CC0000;
+}
 /* ------------------------------------------------------------ Разделение категорий и рецептов */
-.show_categories{
+/*.show_categories{
   float: left;
   width: 25%;
 }
@@ -102,7 +107,4 @@ div.field, div.actions {
 .odd{
   background: #EEE;
 }
-
-.lack{
-  color: #CC0000;
-}
+*/

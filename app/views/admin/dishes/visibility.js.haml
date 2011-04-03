@@ -1,6 +1,5 @@
 -# проверка
 -# #{"alert('hello');"}
 
-$("#notice").html("#{escape_javascript(flash[:notice])}");
+-# $("#flash_notice").html("#{escape_javascript(flash[:notice])}");
 $("#dishes_list").html("#{escape_javascript(render :partial => "/admin/shared/dishes_list", :locals => { :dishes => @dishes })}");
-

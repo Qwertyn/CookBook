@@ -1,9 +1,9 @@
-.show_categories
-  = t'Cookbook'
-.show_dishes
-  %h2=t'Dishes'
-        
-  = render :partial => "/admin/shared/dishes_list", :locals => { :dishes => @dishes }
-   
-  %br= link_to (t'New Dish'), new_admin_dish_path
+%h2=t'Dishes'
+= link_to (t'New Dish'), new_admin_dish_path
+%br
+%br
+
+= render :partial => "/admin/shared/dishes_list", :locals => { :dishes => @dishes }
+ 
+= link_to (t'New Dish'), new_admin_dish_path
  

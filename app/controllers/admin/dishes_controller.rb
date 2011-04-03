@@ -41,9 +41,11 @@ class Admin::DishesController < AdminController
     
   def visibility    
     @dish.visible == true ? @dish.visible = false : @dish.visible = true
-    if @dish.update_attributes(params[:dish])
-      flash[:notice] = "Successfully updated dish."                              
-    end
+    @dish.update_attributes(params[:dish])
+    
+    # if @dish.update_attributes(params[:dish])
+    #   flash[:notice] = "Successfully updated dish."                              
+    # end
     respond_with([:admin, @dish])    
   end
   

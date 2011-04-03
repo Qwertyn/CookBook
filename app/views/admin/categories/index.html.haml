@@ -1,2 +1,25 @@
-.show_categories
-  = render :partial => "/admin/shared/categories_list", :locals => { :categories => @categories }  
+%h2=t'Categories'
+= link_to (t'New Category'), new_admin_category_path
+%br
+%br
+- unless @categories.blank?
+  %table
+    %thead
+      %tr.pretty        
+        %th= sortable "id"
+        %th= sortable "name", "#{t'activerecord.attributes.category.name'}"        
+        %th= sortable "dishes", "#{t'activerecord.attributes.category.dishes'}"        
+        %th=t'Operations'  
+    %tbody    
+      - @categories.each do |category|        
+        %tr
+          %td= category.id
+          %td= category.name
+          %td= category.dishes.count          
+          %td        
+            = link_to (t'Edit'), edit_admin_category_path(category)
+            = link_to (t'Destroy'), [:admin, category], :confirm => "#{t'Are you sure?'}", :method => :delete
+- else 
+  %p=t'Oops, No Categories' 
+
+= link_to (t'New Category'), new_admin_category_path       

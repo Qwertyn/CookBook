@@ -161,6 +161,7 @@ ru:
     attributes:
       category:
         name: Название
+        dishes: Блюда
       
       dish:
         category: Категория
